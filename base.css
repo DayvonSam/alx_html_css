@@ -1,0 +1,69 @@
+/* base.css - global base styles for the project */
+
+/* Box sizing & reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.4;
+  color: #111;
+  background-color: #fff;
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Utility container */
+.container {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Header & footer basic look */
+header {
+  background-color: #f5f5f5;
+  padding: 16px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+footer {
+  background-color: #f5f5f5;
+  padding: 12px;
+  border-top: 1px solid #eaeaea;
+  text-align: center;
+  color: #666;
+}
+
+/* Tweet card */
+.tweet {
+  border: 1px solid #e5e5e5;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: #fff;
+}
+
+/* Accessibility focus */
+:focus {
+  outline: 3px solid rgba(21,156,228,0.3);
+  outline-offset: 2px;
+}

@@ -1,0 +1,175 @@
+/* styles.css - project-specific styles */
+
+/* 1) Make body a flex container stacking header / main / footer vertically */
+body {/* ---------- Project custom styles (Task 3) ---------- */
+
+/* Typography & page background */
+:root {
+  --accent: #0066cc;
+  --muted: #6b7280;
+  --bg: #f8fbff;
+  --card: #ffffff;
+}
+
+body {
+  background: var(--bg);
+  color: #0f172a;
+  font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header visual */
+header {
+  background: linear-gradient(90deg, rgba(0,102,204,0.06), rgba(0,102,204,0.02));
+  padding: 20px;
+  border-bottom: 1px solid rgba(6, 42, 102, 0.06);
+}
+
+/* Simple top navigation list */
+.top-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 12px;
+  align-items: center;
+  padding: 0;
+  margin: 0 0 8px 0;
+}
+
+/* Logo list item — bigger and visually distinct */
+.top-nav .logo {
+  font-size: 1.6rem;      /* larger than other nav items */
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: var(--card);
+  box-shadow: 0 1px 2px rgba(10, 20, 40, 0.04);
+}
+
+/* Make nav links subtle */
+.top-nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Header content */
+.header-content h1 {
+  margin: 6px 0 0 0;
+  font-size: 1.4rem;
+}
+
+.header-content .tagline {
+  margin: 4px 0 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Article styling (allowed to change freely) */
+article {
+  background: linear-gradient(180deg, #fff, #fbfdff);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(10, 20, 40, 0.03);
+  border: 1px solid rgba(6, 42, 102, 0.03);
+}
+
+/* Improve readability of headings & paragraphs */
+article h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #032a63;
+}
+
+article p {
+  color: #24314a;
+  line-height: 1.6;
+  margin: 0 0 12px 0;
+}
+
+/* Tweet cards (if your tweets.html uses .tweet) */
+.tweet {
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.tweet:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(8, 18, 40, 0.06);
+}
+
+/* Aside styling */
+aside {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid rgba(6, 42, 102, 0.03);
+}
+
+/* Footer tweaks */
+footer {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Small responsive tweak for logos and padding on small screens */
+@media (max-width: 640px) {
+  .top-nav .logo {
+    font-size: 1.3rem;
+    padding: 3px 6px;
+  }
+  header {
+    padding: 12px;
+  }
+  article, aside {
+    padding: 12px;
+  }
+}
+
+  display: flex;
+  flex-direction: column;
+  height: 100vh;   /* full viewport height so main can grow/shrink */
+  margin: 0;
+}
+
+/* 2) Make main a horizontal flex container for article + aside */
+main {
+  display: flex;
+  flex-direction: row;
+  flex: auto;      /* allow main to expand and fill available space */
+  gap: 16px;       /* optional spacing between article and aside */
+  padding: 16px;
+  overflow: hidden; /* prevent main from growing beyond body; children will scroll */
+}
+
+/* 3) Article (2/3 width) and Aside (1/3 width) */
+article {
+  flex: 2;         /* takes 2 boxes of available space (2/3) */
+  min-width: 0;    /* allow shrinking and let overflow work correctly */
+  overflow-y: auto;/* enable vertical scroll inside article if content exceeds */
+  padding-right: 8px;
+}
+
+aside {
+  flex: 1;         /* takes 1 box of available space (1/3) */
+  min-width: 0;
+  overflow-y: auto;/* enable vertical scroll inside aside if content exceeds */
+  padding-left: 8px;
+}
+
+/* Optional visuals for article and aside to see layout */
+article {
+  background: #ffffff;
+}
+
+aside {
+  background: #fafafa;
+  border-left: 1px solid #eee;
+}
+
+/* small responsive tweak: stack on very narrow screens */
+@media (max-width: 640px) {
+  main {
+    flex-direction: column;
+  }
+  article, aside {
+    flex: none;
+    width: 100%;
+  }
+}
