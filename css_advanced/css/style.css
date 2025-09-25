@@ -71,3 +71,10 @@ footer {
   background: #f9f9f9;
   border-top: 1px solid #ddd;
 }
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: darkblue;
+}
