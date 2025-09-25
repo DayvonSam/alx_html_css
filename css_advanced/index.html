@@ -18,6 +18,175 @@
                 <li><a href="#">LOGIN</a></li>
             </ul>
         </nav>
+        <header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <!-- use your logo image or unicode character -->
+      <img src="assets/logo.png" alt="logo" class="logo-img">
+    </div>
+
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Banner / hero section (first section) -->
+<section class="hero">
+  <!-- background image is applied via CSS; include a container for content -->
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-content">
+    <h1 class="hero-title">Get schooled</h1>
+    <p class="hero-sub">Learn from the pros</p>
+    <a class="btn-cta" href="#">Register for free</a>
+
+    <div class="profiles">
+      <div class="profile"><img src="assets/1.png" alt=""><p>Phillip Massey</p></div>
+      <div class="profile"><img src="assets/2.png" alt=""><p>Nannie Lawrence</p></div>
+      <div class="profile"><img src="assets/3.png" alt=""><p>Bruce Walters</p></div>
+      <div class="profile"><img src="assets/4.png" alt=""><p>Henry Hughes</p></div>
+    </div>
+  </div>
+  <!-- Quote section (Figma-inspired) -->
+<section class="quote-section">
+  <div class="container">
+    <blockquote class="quote">
+      <p>
+        “Design is the silent ambassador of your brand. Good design communicates clearly, evokes emotion, and makes people stay.”
+      </p>
+      <footer class="quote-footer">
+        <cite>— Alex Doe, UI/UX Designer</cite>
+        <span class="quote-meta"> • Lead product designer, 2019–2022</span>
+      </footer>
+    </blockquote>
+  </div>
+</section>
+<section id="videos">
+  <h2>Videos</h2>
+  <div class="videos-list">
+    <div class="video-card">
+      <img src="https://via.placeholder.com/300x180" alt="Video thumbnail">
+      <h3>Video Title 1</h3>
+      <p>Short description of the video.</p>
+    </div>
+
+    <div class="video-card">
+      <img src="https://via.placeholder.com/300x180" alt="Video thumbnail">
+      <h3>Video Title 2</h3>
+      <p>Short description of the video.</p>
+    </div>
+
+    <div class="video-card">
+      <img src="https://via.placeholder.com/300x180" alt="Video thumbnail">
+      <h3>Video Title 3</h3>
+      <p>Short description of the video.</p>
+    </div>
+  </div>
+</section>
+<section id="membership" class="membership">
+  <div class="container">
+    <div class="membership-head">
+      <h2>Membership</h2>
+      <p class="lead">Choose the plan that fits you. Cancel anytime.</p>
+    </div>
+
+    <div class="membership-grid">
+      <article class="plan plan-basic" aria-labelledby="plan-basic-title">
+        <div class="plan-body">
+          <h3 id="plan-basic-title">Basic</h3>
+          <p class="price">Free</p>
+          <ul class="plan-features">
+            <li>Access to core videos</li>
+            <li>Community support</li>
+          </ul>
+        </div>
+        <div class="plan-footer">
+          <a class="btn btn-outline" href="#">Get started</a>
+        </div>
+      </article>
+
+      <article class="plan plan-pro" aria-labelledby="plan-pro-title">
+        <div class="badge">Popular</div>
+        <div class="plan-body">
+          <h3 id="plan-pro-title">Pro</h3>
+          <p class="price">$9 / month</p>
+          <ul class="plan-features">
+            <li>Everything in Basic</li>
+            <li>Exclusive videos & downloads</li>
+            <li>Priority support</li>
+          </ul>
+        </div>
+        <div class="plan-footer">
+          <a class="btn btn-primary" href="#">Start Pro</a>
+        </div>
+      </article>
+
+      <article class="plan plan-business" aria-labelledby="plan-business-title">
+        <div class="plan-body">
+          <h3 id="plan-business-title">Business</h3>
+          <p class="price">$29 / month</p>
+          <ul class="plan-features">
+            <li>Team seats</li>
+            <li>Private onboarding</li>
+            <li>Advanced analytics</li>
+          </ul>
+        </div>
+        <div class="plan-footer">
+          <a class="btn btn-outline" href="#">Contact sales</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="membership-note">All plans include a 7-day free trial.</p>
+  </div>
+</section>
+<section id="faq" class="faq">
+  <div class="container">
+    <div class="faq-head">
+      <h2>Frequently Asked Questions</h2>
+      <p class="lead">Answers to common questions about membership, content and access.</p>
+    </div>
+
+    <div class="faq-list" role="list">
+      <div class="faq-item">
+        <button class="faq-toggle" aria-expanded="false" aria-controls="faq1" id="faq1-btn">
+          <span class="faq-q">What is included in the free plan?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div id="faq1" class="faq-panel" role="region" aria-labelledby="faq1-btn">
+          <p>Our free plan includes access to selected videos, the community forum, and basic resources.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-toggle" aria-expanded="false" aria-controls="faq2" id="faq2-btn">
+          <span class="faq-q">Can I cancel anytime?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div id="faq2" class="faq-panel" role="region" aria-labelledby="faq2-btn">
+          <p>Yes — you can cancel your subscription at any time from your account settings. No long-term commitment.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-toggle" aria-expanded="false" aria-controls="faq3" id="faq3-btn">
+          <span class="faq-q">How do I access members-only videos?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div id="faq3" class="faq-panel" role="region" aria-labelledby="faq3-btn">
+          <p>Members-only videos appear in your dashboard after logging in. Pro members also get downloadable resources.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
         
     </header>
     <main>
@@ -208,5 +377,37 @@
             <p>©smileschool 2020</p>
         </section>
     </footer>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggles = document.querySelectorAll('.faq-toggle');
+
+    toggles.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const panel = item.querySelector('.faq-panel');
+        const isOpen = item.classList.contains('open');
+
+        // Close all other items if you want only one open at a time:
+        document.querySelectorAll('.faq-item.open').forEach(openItem => {
+          if (openItem !== item) {
+            openItem.classList.remove('open');
+            openItem.querySelector('.faq-toggle').setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        if (isOpen) {
+          // close
+          item.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        } else {
+          // open
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+</script>
+
 </body>
 </html>

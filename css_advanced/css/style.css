@@ -78,3 +78,656 @@ body {
 h1 {
   color: darkblue;
 }
+/* -------- Header -------- */
+.site-header {
+  width: 100%;
+  position: relative;
+  z-index: 40;
+  background: transparent;
+  padding: 20px 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* brand/logo */
+.brand .logo-img {
+  height: 36px;              /* adjust to match figma */
+  display: block;
+}
+
+/* nav */
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+.main-nav a {
+  color: #ffffff;            /* white text on banner; change if header background changes */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  opacity: 0.95;
+  padding: 6px 8px;
+}
+
+/* Make nav small on mobile */
+@media (max-width: 640px) {
+  .main-nav { display: none; } /* or transform to a burger menu as you wish */
+}
+
+/* -------- Hero / Banner -------- */
+.hero {
+  position: relative;
+  min-height: 580px;         /* close to the screenshot height */
+  display: flex;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Background image + cover */
+.hero {
+  background-image: url("assets/Object.png"); /* change to your hero image */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* dark overlay for contrast */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  /* subtle dark gradient near bottom */
+  background: linear-gradient(180deg, rgba(12,18,30,0.25) 0%, rgba(6,12,28,0.7) 70%);
+  z-index: 1;
+}
+
+/* content over the image */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 20px;
+  text-align: center;
+}
+
+/* big hero title */
+.hero-title {
+  font-size: 64px;           /* large, adjust to taste */
+  line-height: 1;
+  margin: 0 0 12px 0;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #ffffff;
+  text-shadow: 0 6px 30px rgba(2,8,20,0.45);
+}
+
+/* subtle subheading */
+.hero-sub {
+  color: rgba(255,255,255,0.85);
+  font-size: 18px;
+  margin: 8px 0 22px 0;
+  font-weight: 600;
+}
+
+/* CTA button */
+.btn-cta {
+  display: inline-block;
+  background: linear-gradient(180deg,#c77cff,#8b5cf6); /* purple button like screenshot */
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 28px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 30px rgba(139,92,246,0.22);
+  margin-bottom: 36px;
+}
+
+/* profile row */
+.profiles {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 28px;
+  margin-top: 40px;
+  flex-wrap: nowrap;
+}
+
+/* each profile */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.95);
+  font-size: 0.9rem;
+}
+
+/* circular avatar */
+.profile img {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255,255,255,0.06);
+  box-shadow: 0 8px 20px rgba(4,10,20,0.35);
+}
+
+/* profile name */
+.profile p {
+  margin: 8px 0 0 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.9);
+}
+
+/* responsive adjustments */
+@media (max-width: 900px) {
+  .hero-title { font-size: 44px; }
+  .hero { min-height: 520px; }
+  .profiles { gap: 18px; }
+  .profile img { width: 72px; height: 72px; }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 420px;
+    align-items: flex-start;
+    padding-top: 24px;
+  }
+  .hero-title { font-size: 32px; }
+  .btn-cta { margin-bottom: 18px; }
+  .profiles { margin-top: 16px; gap: 12px; overflow-x: auto; padding-bottom: 10px; }
+}
+/* ====== Centralized theme variables & shared helpers ====== */
+:root {
+  --page-max-width: 1100px;
+  --space-lg: 48px;
+  --space-md: 24px;
+  --muted: #6b7280;
+  --accent: #6b47ff;          /* use Figma accent if different */
+  --card-bg: #ffffff;
+  --quote-bg: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,252,0.95));
+  --shadow-soft: 0 8px 24px rgba(8, 18, 40, 0.06);
+  --text-color: #0f172a;
+  --quote-mark-color: rgba(107,71,255,0.12);
+  --radius-md: 12px;
+}
+
+/* shared container (if not already present) */
+.container {
+  max-width: var(--page-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Nice readable paragraph baseline for sections */
+.section-paragraph {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 var(--space-md) 0;
+}
+
+/* ====== Quote section styling (Figma-style) ====== */
+.quote-section {
+  padding: var(--space-lg) 0;
+  background: transparent; /* or a subtle section color from Figma */
+}
+
+/* the quote card */
+.quote {
+  position: relative;
+  background: var(--quote-bg);
+  border-radius: var(--radius-md);
+  padding: 36px 28px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(15,23,42,0.04);
+  max-width: 920px;
+  margin: 0 auto; /* center the block */
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+/* big decorative quote mark */
+.quote::before {
+  content: "“";
+  position: absolute;
+  left: 20px;               /* shift as needed to match Figma */
+  top: -18px;
+  font-size: 160px;        /* large decorative mark */
+  line-height: 1;
+  color: var(--quote-mark-color);
+  font-weight: 700;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(0.25px);    /* very slight blur to soften */
+}
+
+/* actual text sits on top of the decorative mark */
+.quote p {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 18px 0;
+  font-size: 1.125rem;      /* ~18px - adjust to Figma size */
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* footer with author and meta */
+.quote-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.quote-footer cite {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.quote-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* small screens: scale down decorative mark, reduce padding */
+@media (max-width: 640px) {
+  .quote {
+    padding: 20px 16px;
+    border-radius: 10px;
+  }
+  .quote::before {
+    font-size: 88px;
+    left: 8px;
+    top: -8px;
+  }
+  .quote p {
+    font-size: 1rem;
+  }
+}
+/* ===== Videos Section ===== */
+#videos {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9; /* adjust to match Figma */
+}
+
+#videos h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333; /* adjust from Figma */
+}
+
+.videos-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.video-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+}
+
+.video-card img {
+  width: 100%;
+  display: block;
+}
+
+.video-card h3 {
+  font-size: 1.2rem;
+  margin: 1rem;
+  color: #222;
+}
+
+.video-card p {
+  font-size: 0.95rem;
+  margin: 0 1rem 1rem;
+  color: #555;
+}
+@media (min-width: 768px) {
+  #videos h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .videos-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* -------------------------
+   Membership section styles
+   ------------------------- */
+
+/* Root variables (if you already have :root, merge these) */
+:root {
+  --membership-bg: #ffffff;      /* card background */
+  --membership-section-bg: #f7f9fb; /* section background */
+  --muted: #6b7280;
+  --text: #111827;
+  --accent: #2563eb;             /* primary color */
+  --accent-2: #f59e0b;           /* secondary/accent color */
+  --card-radius: 12px;
+  --gap: 1.25rem;
+}
+
+/* Section container */
+#membership {
+  background: var(--membership-section-bg);
+  padding: 3rem 1rem;
+  color: var(--text);
+}
+
+#membership .membership-head {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+#membership .membership-head h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  margin-bottom: 0.5rem;
+}
+
+#membership .lead {
+  color: var(--muted);
+  margin: 0 auto;
+  max-width: 640px;
+  font-size: 1rem;
+}
+
+/* Grid of plans (mobile-first: stacked) */
+.membership-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 1.5rem auto 0;
+  align-items: stretch;
+  padding: 0 0.25rem;
+}
+
+/* Individual plan card */
+.plan {
+  background: var(--membership-bg);
+  border-radius: var(--card-radius);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(15,23,42,0.04);
+  transition: transform .18s ease, box-shadow .18s ease;
+  position: relative;
+}
+
+.plan:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.12);
+}
+
+/* Optional badge (e.g., Popular) */
+.plan .badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent-2);
+  color: white;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+/* Plan body and footer */
+.plan-body {
+  padding: 1.25rem;
+  flex: 1 1 auto;
+}
+
+.plan-footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(15,23,42,0.04);
+  display: flex;
+  justify-content: center;
+}
+
+/* Titles & price */
+.plan h3 {
+  font-size: 1.15rem;
+  margin: 0 0 0.35rem;
+  color: var(--text);
+}
+
+.plan .price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+}
+
+/* Feature list */
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.45rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.plan-features li::before {
+  content: "•";
+  display: inline-block;
+  width: 1rem;
+  color: var(--accent);
+  margin-right: 0.35rem;
+}
+
+/* Buttons: if you have global .btn and .btn-primary, these will match.
+   If not, this ensures a nice appearance. */
+.btn {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  border: 1px solid transparent;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(37,99,235,0.12);
+}
+
+/* Note text */
+.membership-note {
+  text-align: center;
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---- Responsive rules ---- */
+@media (min-width: 720px) {
+  .membership-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .membership-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .plan .plan-footer {
+    padding: 1.25rem;
+  }
+}
+
+/* Larger display tune-up */
+@media (min-width: 1400px) {
+  #membership { padding: 4.5rem 1rem; }
+  .membership-head h2 { font-size: 2.4rem; }
+}
+/* ===== FAQ Section ===== */
+:root {
+  --faq-section-bg: #ffffff;   /* change to Figma background if needed */
+  --faq-bg: #f7f9fb;
+  --faq-accent: #2563eb;
+  --faq-text: #111827;
+  --muted: #6b7280;
+  --card-radius: 10px;
+}
+
+.faq {
+  background: var(--faq-bg);
+  padding: 3rem 1rem;
+  color: var(--faq-text);
+}
+
+.faq-head {
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+
+.faq-head h2 {
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  margin-bottom: 0.4rem;
+}
+
+.faq-head .lead {
+  color: var(--muted);
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+/* list */
+.faq-list {
+  max-width: 1100px;
+  margin: 1rem auto 0;
+  display: grid;
+  gap: 1rem;
+  padding: 0 0.25rem;
+}
+
+/* item */
+.faq-item {
+  background: var(--faq-section-bg);
+  border-radius: var(--card-radius);
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+  overflow: hidden;
+  border: 1px solid rgba(15,23,42,0.04);
+}
+
+/* button that toggles panel */
+.faq-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--faq-text);
+}
+
+.faq-toggle:focus {
+  outline: 3px solid rgba(37,99,235,0.12);
+  outline-offset: 2px;
+}
+
+.faq-q {
+  display: inline-block;
+}
+
+/* icon to indicate open/close */
+.faq-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: rgba(15,23,42,0.04);
+  color: var(--faq-accent);
+  font-weight: 700;
+  transition: transform .18s ease, background .18s ease;
+}
+
+/* panel (hidden by default) */
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .28s ease, padding .18s ease;
+  padding: 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+/* when open — helper classes added by JS */
+.faq-item.open .faq-panel {
+  padding: 0.75rem 1.25rem 1.25rem;
+  max-height: 480px; /* large enough for content */
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg); /* turns + to x effect (depends on icon) */
+  background: rgba(37,99,235,0.08);
+}
+
+/* small responsive grid (two columns on tablet, three on wide screens) */
+@media (min-width: 700px) {
+  .faq-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .faq-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
